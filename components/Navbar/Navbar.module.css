@@ -31,5 +31,11 @@
 .navLink {
     color: whitesmoke;
     text-decoration: none;
+    font-size: 1.5rem;
     width: 100%;
+}
+
+.navLink:hover {
+    color: #219897;
+    text-decoration: underline;
 }
