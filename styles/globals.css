@@ -7,38 +7,3 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-nav {
-  height: 4rem;
-  padding: 0;
-  margin: 0;
-  margin-bottom: 1rem;
-}
-
-ul {
-  display: flex;
-  border: 1px solid red;
-  padding: 0;
-  list-style: none;
-  align-items: center;
-  padding: 1rem;
-  margin-top: 0;
-}
-
-li {
-  flex: 0 0 auto;
-  margin: 8px;
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-li:nth-child(1) {
-  margin-right: auto;
-}
-
-a {
-  color: whitesmoke;
-  text-decoration: none;
-  width: 100%;
-}
