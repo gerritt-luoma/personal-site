@@ -1,0 +1,11 @@
+.rmd pre {
+  white-space: pre-wrap;
+  overflow-x: scroll;
+}
+
+.rmd code {
+  display: block;
+  padding: 0.5rem;
+  background-color: #443030;
+  border-radius: 0.3rem;
+}
