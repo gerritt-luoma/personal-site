@@ -1,6 +1,6 @@
 
 export default function Home() {
-    return (
-      <div>Projects</div>
-    )
-  }
+  return (
+    <h1>My Projects</h1>
+  )
+}

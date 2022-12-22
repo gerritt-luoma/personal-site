@@ -1,10 +1,22 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import { MantineProvider, AppShell, Header } from '@mantine/core';
+import { MantineProvider, AppShell, ColorSchemeProvider, ColorScheme } from '@mantine/core';
 import { rtlCache } from 'rtl-cache';
+import CustomHeader from '@components/CustomHeader/CustomHeader';
+import { useLocalStorage } from '@mantine/hooks';
+
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
+  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
+    key: 'mantine-color-scheme',
+    defaultValue: 'dark',
+    getInitialValueInEffect: true,
+  });
+
+  const toggleColorScheme = (value?: ColorScheme ) => {
+    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
+  }
 
   return (
     <>
@@ -13,24 +25,24 @@ export default function App(props: AppProps) {
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
 
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{
-          colorScheme: 'dark',
-        }}
-        emotionCache={rtlCache}
-      >
-        <AppShell
-          padding="md"
-          header={<Header height={60} p="xs"><></></Header>}
-          styles={(theme) => ({
-            main: { backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0]},
-          })}
+      <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
+        <MantineProvider
+          withGlobalStyles
+          withNormalizeCSS
+          theme={{colorScheme: colorScheme}}
+          emotionCache={rtlCache}
         >
-          <Component {...pageProps} />
-        </AppShell>
-      </MantineProvider>
+          <AppShell
+            padding="md"
+            header={<CustomHeader/>}
+            styles={(theme) => ({
+              main: { backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0]},
+            })}
+          >
+            <Component {...pageProps} />
+          </AppShell>
+        </MantineProvider>
+      </ColorSchemeProvider>
     </>
   );
 }
