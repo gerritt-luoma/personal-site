@@ -6,15 +6,11 @@ The following are lists of items that are WIP, Planned, or Completed.  My goal i
 
 ## TODO
 ### Styling
-#### Color Scheme
-- [ ] Determine the color palete of the site
-- [ ] Get various shades of each color
 ### Navigation
 - [ ] Finish styling the Navbar
   - [ ] Change to highlight on hover instead of color change + underline on hover
   - [ ] Bold the selected nav item
-### DRY
-- [ ] Create shared component for rendering markdown files
+
 
 ### Blog
 #### Storage
@@ -41,3 +37,9 @@ The following are lists of items that are WIP, Planned, or Completed.  My goal i
 
 ---
 ## Completed
+### Styling
+### DRY
+- [x] Create shared component for rendering markdown files
+#### Color Scheme
+- [x] Determine the color palete of the site
+- [x] Get various shades of each color
