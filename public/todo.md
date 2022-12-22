@@ -31,6 +31,10 @@ The following are lists of items that are WIP, Planned, or Completed.  My goal i
 - [ ] Write in a text input area with a toggleable preview on the screen
 - [ ] Post and send to the DB
 
+### TDD
+- [ ] Install Cypress
+- [ ] Start writing E2E tests
+
 ---
 
 ## WIP
