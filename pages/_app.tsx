@@ -1,6 +1,7 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import { MantineProvider } from '@mantine/core';
+import { MantineProvider, AppShell, Navbar, Header } from '@mantine/core';
+import { rtlCache } from 'rtl-cache';
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
@@ -16,11 +17,20 @@ export default function App(props: AppProps) {
         withGlobalStyles
         withNormalizeCSS
         theme={{
-          /** Put your mantine theme override here */
           colorScheme: 'dark',
         }}
+        emotionCache={rtlCache}
       >
-        <Component {...pageProps} />
+        <AppShell
+          padding="md"
+          navbar={<Navbar width={{ base: 300}} height={'100%'} fixed={false} position={{ top: 0, left: 0}}> <></></Navbar>}
+          header={<Header height={60} p="xs"><></></Header>}
+          styles={(theme) => ({
+            main: { backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0]},
+          })}
+        >
+          <Component {...pageProps} />
+        </AppShell>
       </MantineProvider>
     </>
   );
