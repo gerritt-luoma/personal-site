@@ -39,3 +39,6 @@ describe('Navigation', () => {
     cy.get('h1').contains('My Projects')
   })
 })
+
+// Fake export to get around type script export rules
+export {}

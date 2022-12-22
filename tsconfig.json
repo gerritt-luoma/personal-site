@@ -21,6 +21,6 @@
       "@public/*": ["public/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "cypress/support/e2e.js", "cypress/support/commands.js", "cypress/e2e/spec.app.cy.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "cypress/**/*.ts"],
   "exclude": ["node_modules"]
 }
