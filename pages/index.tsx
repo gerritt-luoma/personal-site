@@ -16,7 +16,7 @@ export default function Home() {
           </Blockquote>
         </Card>
 
-        <Card shadow={'sm'} radius={'lg'} w={'75%'}>
+        <Card shadow={'sm'} radius={'lg'} miw={'75%'}>
           <Flex align={'center'} direction={'column'} gap={'xl'}>
             <Title order={2}>Site Timeline</Title>
             <Divider variant="solid" size={'xs'} w={'100%'}/>
@@ -27,8 +27,8 @@ export default function Home() {
               <Timeline.Item bullet={<IconExclamationMark size={16}/>} title={'First Failure'}>
                 <Text color="dimmed" size='xs'>I decided not to do everything by hand on:<Text color={'pink.6'}>December 16, 2022</Text></Text>
               </Timeline.Item>
-              <Timeline.Item bullet={<IconStack size={16}/>} title={'New Stack Determined'}>
-                <Text color="dimmed" size='xs'>I determined my stack on:<Text color={'pink.6'}>December 22, 2022</Text></Text>
+              <Timeline.Item bullet={<IconStack size={16}/>} title={'Mantine UI Discovered'}>
+                <Text color="dimmed" size='xs'>Mantine was added to the stack:<Text color={'pink.6'}>December 22, 2022</Text></Text>
               </Timeline.Item>
               <Timeline.Item bullet={<IconTimeline size={16}/>} title={'Timeline created'}>
                 <Text color="dimmed" size='xs'>This super neat timeline was made on:<Text color={'pink.6'}>December 22, 2022</Text></Text>

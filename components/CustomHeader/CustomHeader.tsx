@@ -8,8 +8,8 @@ const CustomHeader = () => {
     return (
         <Header height={60} fixed={false}>
             <Group sx={{ height: '100%' }} px={20} position="apart" >
-                <ActionIcon variant="default" component={Link} href="/" size={'md'}>
-                    <IconHome2 size={16}/>
+                <ActionIcon variant="default" component={Link} href="/" size={'lg'}>
+                    <IconHome2 size={20}/>
                 </ActionIcon>
                 <Group sx={{ width: 400}} position="apart">
                     <ActiveLink href='/resume' text='Resume'/>
@@ -18,10 +18,10 @@ const CustomHeader = () => {
                 </Group>
                 <Group>
                     <ActionIcon variant="default" component="a" href="https://github.com/gerritt-luoma/personal-site">
-                        <IconBrandGithub size={16}/>
+                        <IconBrandGithub size={20}/>
                     </ActionIcon>
-                    <ActionIcon variant="default" onClick={() => toggleColorScheme()} size={'md'}>
-                        { colorScheme === 'light' ? <IconMoonStars size={16} /> : <IconSun size={16}/> }
+                    <ActionIcon variant="default" onClick={() => toggleColorScheme()} size={'lg'}>
+                        { colorScheme === 'light' ? <IconMoonStars size={20} /> : <IconSun size={20}/> }
                     </ActionIcon>
                 </Group>
             </Group>

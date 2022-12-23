@@ -9,8 +9,9 @@ interface ActiveLinkProps {
 
 const ActiveLink = ( { href, text }: ActiveLinkProps) => {
     const router = useRouter();
+    const isActive = router.asPath === href;
     return (
-        <Button component={Link} href={href} variant={router.asPath === href ? 'filled' : 'default'}>
+        <Button component={Link} href={href} variant={isActive ? 'filled' : 'default'} color={isActive ? 'pink.6' : 'default'}>
             {text}
         </Button>
     )
