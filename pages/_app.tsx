@@ -3,11 +3,13 @@ import Head from 'next/head';
 import { MantineProvider, AppShell, ColorSchemeProvider, ColorScheme } from '@mantine/core';
 import { rtlCache } from 'rtl-cache';
 import CustomHeader from '@components/CustomHeader/CustomHeader';
+import { SessionProvider } from 'next-auth/react';
 import { useLocalStorage } from '@mantine/hooks';
 
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
+  const { session } = pageProps;
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
     key: 'mantine-color-scheme',
     defaultValue: 'dark',
@@ -19,7 +21,7 @@ export default function App(props: AppProps) {
   }
 
   return (
-    <>
+    <SessionProvider session={session}>
       <Head>
         <title>Page title</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
@@ -43,6 +45,6 @@ export default function App(props: AppProps) {
           </AppShell>
         </MantineProvider>
       </ColorSchemeProvider>
-    </>
+    </SessionProvider>
   );
 }
