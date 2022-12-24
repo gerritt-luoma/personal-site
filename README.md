@@ -16,9 +16,10 @@ I have chosen to use Prisma as my ORM to manage my Planetscale database because 
 
 
 ## TODO
-- [ ] Finish setting up Planetscale and Prisma
-- [ ] Add the default Next/Auth schema to DB
+- [x] Finish setting up Planetscale and Prisma
+- [x] Add the default Next/Auth schema to DB
 - [ ] Set up Next/Auth (Start with email/password for now?)
+  - [ ] Need to test by signing up with my email
 - [ ] Add ability to post to timeline
   - [ ] Add timeline item to db schema
   - [ ] Write all of the tests
