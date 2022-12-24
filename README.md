@@ -13,3 +13,14 @@ I have chosen to use Planetscale as my database because it offers a number of be
 
 ### Prisma
 I have chosen to use Prisma as my ORM to manage my Planetscale database because it offers several advantages that make it an ideal choice for my needs. One of the main reasons I selected Prisma is because it seamlessly integrates with TypeScript, which is a typed superset of JavaScript that helps me write more reliable and maintainable code. This has been particularly useful for me as I am still learning SQL and appreciate the extra support and guidance that Prisma provides. Additionally, Prisma simplifies the process of interacting with the database by offering a straightforward and intuitive interface, which allows me to focus on the larger architecture and logic of my application rather than getting bogged down in the details of SQL. Overall, Prisma has proven to be a valuable tool in managing my Planetscale database, and I am confident that it will continue to be an asset as I develop and maintain my application.
+
+
+## TODO
+- [ ] Finish setting up Planetscale and Prisma
+- [ ] Add the default Next/Auth schema to DB
+- [ ] Set up Next/Auth (Start with email/password for now?)
+- [ ] Add ability to post to timeline
+  - [ ] Add timeline item to db schema
+  - [ ] Write all of the tests
+  - [ ] Add api routes to allow for CRUD of timeline items
+  - [ ] Move timeline to it's own components and page
