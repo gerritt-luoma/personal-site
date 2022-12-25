@@ -1,0 +1,8 @@
+export enum ItemType {
+    ADDITION,
+    REMOVAL,
+    DECISION,
+    FRONTEND_RELATED,
+    BACKEND_RELATED,
+    REWORK
+}
