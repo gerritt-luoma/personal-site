@@ -1,6 +1,7 @@
 import { Group, Header, ActionIcon, useMantineColorScheme } from "@mantine/core";
 import { IconSun, IconMoonStars, IconHome2, IconBrandGithub } from "@tabler/icons";
 import ActiveLink from "./ActiveLink";
+import SignInButton from "@components/Auth/SignInButton";
 import Link from "next/link";
 
 const CustomHeader = () => {
@@ -23,6 +24,7 @@ const CustomHeader = () => {
                     <ActionIcon variant="default" onClick={() => toggleColorScheme()} size={'lg'}>
                         { colorScheme === 'light' ? <IconMoonStars size={20} /> : <IconSun size={20}/> }
                     </ActionIcon>
+                    <SignInButton />
                 </Group>
             </Group>
         </Header>
