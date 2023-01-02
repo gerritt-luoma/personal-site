@@ -18,9 +18,12 @@ I have chosen to use Prisma as my ORM to manage my Planetscale database because 
 ## TODO
 - [x] Finish setting up Planetscale and Prisma
 - [x] Add the default Next/Auth schema to DB
+- [ ] Purchase domain name
+- [ ] Deploy current site to Vercel
+- [ ] Obtain SSL Certificate
 - [ ] Set up Next/Auth (Start with email/password for now?)
   - [x] Add api route
-  - [x] Configure email
+  - [ ] Configure email
   - [ ] Need to test by signing up with my email
   - [ ] Style the sign in page
   - [ ] Style the sign out page
