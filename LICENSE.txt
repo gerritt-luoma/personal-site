@@ -1,0 +1,4 @@
+1. Feel free to use this code but please don't copy it directly
+2. If you use this code as a starting point please credit the author
+
+Just trying to learn site development and maybe help others with this code.
