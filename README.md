@@ -1,5 +1,7 @@
 This is a **very** early stage work in progress.  As more work is being done I will update this README over time with progress and how to install/run the project.
 
+[Contribution guidelines for this project](.github/CONTRIBUTING.md)
+
 ## My stack
 For fun: Here are some outputs from chatGPT explaining why I chose the different tools in my stack.
 ### Next.js
