@@ -20,9 +20,24 @@ I have chosen to use Prisma as my ORM to manage my Planetscale database because 
 ## TODO
 - [x] Finish setting up Planetscale and Prisma
 - [x] Add the default Next/Auth schema to DB
-- [ ] Purchase domain name
-- [ ] Deploy current site to Vercel
-- [ ] Obtain SSL Certificate
+- [x] Purchase domain name
+- [x] Deploy current site to Vercel
+- [x] Obtain SSL Certificate
+- [ ] Rework the navbar
+  - [ ] Only have my name on the left.  When clicked go to home page
+  - [ ] Have menu be a dropdown menu
+    - [ ] Have links to home, blog, projects
+    - [ ] Under all the links have the toggle button for the theme
+      - [ ] When in dark theme, show a sun.  When in light theme, show a moon.
+    - [ ] To open:
+      - [ ] Arrow facing down that can be hovered.
+      - [ ] When clicked flash pink
+      - [ ] Menu opens and arrow flips to face upwards
+    - [ ] To close:
+      - [ ] Arrow facing up that can be hovered.
+      - [ ] When clicked flash pink
+      - [ ] Menu closes and arrow flips to face down.
+  - [ ] Must be reactive.  Look good and function well on web and mobile.
 - [ ] Set up Next/Auth (Start with email/password for now?)
   - [x] Add api route
   - [ ] Configure email
