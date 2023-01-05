@@ -5,6 +5,7 @@ import { rtlCache } from 'rtl-cache';
 import CustomHeader from '@components/CustomHeader/CustomHeader';
 import { SessionProvider } from 'next-auth/react';
 import { useLocalStorage } from '@mantine/hooks';
+import "@styles/global.css"
 
 
 export default function App(props: AppProps) {
