@@ -22,7 +22,8 @@ const CustomHeader = ( { opened, setOpened }: CustomHeaderProps) => {
                         <Burger
                             opened={opened}
                             onClick={() => setOpened(!opened)}
-                            size={'md'}/>
+                            size={'md'}
+                            mr='sm'/>
                     </MediaQuery>
                 </Group>
 
