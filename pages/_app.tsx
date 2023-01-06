@@ -2,7 +2,7 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { MantineProvider, AppShell, ColorSchemeProvider, ColorScheme } from '@mantine/core';
 import { rtlCache } from 'rtl-cache';
-import CustomHeader from '@components/CustomHeader/CustomHeader';
+import CustomNavbar from '@components/Navigation/CustomNavbar';
 import { SessionProvider } from 'next-auth/react';
 import { useLocalStorage } from '@mantine/hooks';
 import "@styles/global.css"
@@ -37,7 +37,7 @@ export default function App(props: AppProps) {
         >
           <AppShell
             padding="md"
-            header={<CustomHeader/>}
+            navbar={<CustomNavbar/>}
             styles={(theme) => ({
               main: { backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0]},
             })}
