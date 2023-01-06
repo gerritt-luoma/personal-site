@@ -1,9 +1,13 @@
 import NavbarLinks from './NavbarLinks'
 import { Navbar } from '@mantine/core';
 
-const CustomNavbar = () => {
+interface CustomNavbarProps {
+    opened: boolean
+}
+
+const CustomNavbar = ({ opened }: CustomNavbarProps) => {
     return (
-        <Navbar width={{ base: 300 }} height={500} p='xs'>
+        <Navbar width={{ sm: 200, lg: 300 }} height={'100%'} p='xs' hidden={!opened}>
             <Navbar.Section grow mt="xs">
                 <NavbarLinks/>
             </Navbar.Section>
