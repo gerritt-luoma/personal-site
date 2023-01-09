@@ -13,7 +13,7 @@ const CustomHeader = ( { opened, setOpened }: CustomHeaderProps) => {
         <Header height={{ base: 50, md: 70 } } p="md">
             <Flex align={'center'} h={'100%'} justify='space-between'>
                 <ActionIcon component={Link} href='/' size={'md'} variant='outline'>
-                    <IconAperture size={'md'}/>
+                    <IconAperture size={'md'} height='100%' width={'100%'}/>
                 </ActionIcon>
 
                 <Group>
