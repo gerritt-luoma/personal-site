@@ -1,16 +1,14 @@
 import { useState } from "react";
-import { Title, Button, Group, Flex, Card } from "@mantine/core";
+import { Title, Button, Flex, Card } from "@mantine/core";
+import { convertSecondsToString } from "@lib/timer/timerUtils";
 
 const Timer = () => {
-    const [remainingSeconds, setRemainingSeconds] = useState(300);
+    const [remainingSeconds, setRemainingSeconds] = useState(5);
     const [intervalID, setIntervalID] = useState(0);
 
     const startTimer = () => {
         if(!intervalID) {
-            setIntervalID(window.setInterval(() => {
-                setRemainingSeconds(seconds => seconds - 1);
-                displayTime(remainingSeconds);
-            }, 1000))
+            setIntervalID(window.setInterval(tickTime, 1000))
         }
     }
 
@@ -21,14 +19,19 @@ const Timer = () => {
         }
     }
 
-    const displayTime = (numSeconds: number) => {
+    const tickTime = () => {
+        if(0 < remainingSeconds) {
+            setRemainingSeconds(remainingSeconds => remainingSeconds - 1);
+        } else {
+            stopTimer();
+        }
     }
 
     return (
         <Flex justify={'center'}>
             <Card radius={'md'} withBorder w={300}>
                 <Card.Section>
-                    <Title order={1} ta='center' m='sm'>{remainingSeconds}</Title>
+                    <Title order={1} ta='center' m='sm'>{convertSecondsToString(remainingSeconds)}</Title>
                 </Card.Section>
                 <Card.Section>
                     <Flex justify={'center'}>
