@@ -14,7 +14,7 @@ const ThemeToggle = () => {
             onClick={() => setColorScheme(colorScheme === 'dark' ? 'light' : 'dark')}
             variant='outline'
         >
-            { colorScheme === 'dark' ? <IconSun size='md'/> : <IconMoonStars size='md'/>}
+            { colorScheme === 'dark' ? <IconSun size='md' height={'100%'} width='100%'/> : <IconMoonStars size='md' height={'100%'} width='100%'/>}
         </ActionIcon>
     )
 }
