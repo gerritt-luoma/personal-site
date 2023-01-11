@@ -1,14 +1,20 @@
 import { useState } from "react";
-import { Title, Button, Flex, Card } from "@mantine/core";
+import { Text, Flex, Card } from "@mantine/core";
 import { convertSecondsToString } from "@lib/timer/timerUtils";
+import PlayPauseButton from "@components/Timer/PlayPauseButton";
+import ChangeTime from "@components/Timer/ChangeTime";
+import { add } from "cypress/types/lodash";
+import { ThemeContext } from "@emotion/react";
 
 const Timer = () => {
     const [remainingSeconds, setRemainingSeconds] = useState(0);
     const [intervalID, setIntervalID] = useState(0);
+    const [running, setRunning] = useState(false);
 
     const startTimer = () => {
         if(!intervalID) {
-            setIntervalID(window.setInterval(tickTime, 1000))
+            setIntervalID(window.setInterval(tickTime, 1000));
+            setRunning(true);
         }
     }
 
@@ -16,6 +22,7 @@ const Timer = () => {
         if(intervalID) {
             window.clearInterval(intervalID);
             setIntervalID(0);
+            setRunning(false);
         }
     }
 
@@ -40,20 +47,17 @@ const Timer = () => {
 
     return (
         <Flex justify={'center'}>
-            <Card radius={'md'} withBorder w={300}>
+            <Card radius={'md'} withBorder w={300} shadow='lg'>
                 <Card.Section>
-                    <Title order={1} ta='center' m='sm'>{convertSecondsToString(remainingSeconds)}</Title>
+                    <Text size={50} weight='bold' ta='center' m='sm'>
+                        {convertSecondsToString(remainingSeconds)}
+                    </Text>
                 </Card.Section>
                 <Card.Section>
-                    <Flex justify='center' align={'center'}>
-                        <Button radius={'xl'} mx='sm' onClick={reduceTime}><Title order={3}>-5</Title></Button>
-                        <Button radius={'xl'} mx='sm' onClick={addTime}><Title order={3}>+5</Title></Button>
-                    </Flex>
-                </Card.Section>
-                <Card.Section>
-                    <Flex justify={'center'} mt='xl'>
-                        <Button m='sm' onClick={startTimer}>Start</Button>
-                        <Button m='sm' onClick={stopTimer}>Stop</Button>
+                    <Flex justify={'space-evenly'} mt='xl' mx='md' align='center' m='sm'>
+                        <ChangeTime text={"-5"} onClick={reduceTime}/>
+                        <PlayPauseButton running={running} onClick={running ? stopTimer : startTimer}/>
+                        <ChangeTime text={"+5"} onClick={addTime}/>
                     </Flex>
                 </Card.Section>
             </Card>
