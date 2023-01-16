@@ -49,7 +49,7 @@ const TimerCard = ({ title, totalSeconds }: TimerCardProps) => {
     }
 
     return (
-        <Card radius={'md'} withBorder w={300} shadow='lg' my={'md'}>
+        <Card radius={'md'} withBorder w={300} shadow='lg' my={'md'} sx={{borderRadius: "20px"}}>
             <Card.Section>
                 <Text size={50} weight='bold' ta='center' mt='sm' mx='sm'>
                     {convertSecondsToString(remainingSeconds)}

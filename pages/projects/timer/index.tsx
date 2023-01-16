@@ -1,7 +1,8 @@
 import { Flex, TextInput, Button, Box } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useState } from "react";
-import TimerCard, { TimerCardProps } from "@components/Timer/TimerCard";
+import TimerCard, { TimerCardProps } from "@components/Timer/TimerActive";
+import TimerMain from "@components/Timer/TimerMain";
 
 const Timer = () => {
     const [items, setItems] = useState<TimerCardProps[]>([]);
@@ -25,7 +26,7 @@ const Timer = () => {
     })
     return (
         <Flex justify={'center'} align='center' direction='column' mx='auto' bg='dark.7' maw={500}>
-            <Box  bg='dark.6' w={300} mx='auto' sx={{borderRadius:'20px'}}>
+            {/*<Box  bg='dark.6' w={300} mx='auto' sx={{borderRadius:'20px'}}>
                 <form
                     onSubmit={form.onSubmit((values) => {
                         const newArr = [...items, values]
@@ -53,7 +54,8 @@ const Timer = () => {
                     </Button>
                 </form>
             </Box>
-            {items && items.map((item, index) => <TimerCard key={index} title={item.title} totalSeconds={item.totalSeconds}/>)}
+                {items && items.map((item, index) => <TimerCard key={index} title={item.title} totalSeconds={item.totalSeconds}/>)} */}
+            <TimerMain/>
         </Flex>
     );
 }
