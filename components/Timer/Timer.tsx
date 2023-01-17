@@ -1,8 +1,15 @@
-import { Box, Group, Flex, Text, TextInput } from "@mantine/core";
+import { Group, Flex, Text, TextInput } from "@mantine/core";
 import { KeyboardEvent, useState } from "react";
-const TimerMain = () => {
+
+export interface TimerProps {
+    title: string,
+    initialTime?: number
+}
+
+const Timer = ({ title }: TimerProps) => {
     const [editable, setEditable] = useState(false);
-    const [content, setContent] = useState('Add Task');
+    // need to update this to have state managed by timer page
+    const [content, setContent] = useState(title);
 
     const handleKeyDown = (event:KeyboardEvent) => {
         if(event.key === 'Enter') {
@@ -18,6 +25,7 @@ const TimerMain = () => {
                 height: '100px',
                 borderRadius: theme.radius.md
             })}
+            my={'sm'}
         >
             <Flex
                 direction='column'
@@ -78,4 +86,4 @@ const TimerMain = () => {
     );
 }
 
-export default TimerMain;
+export default Timer;
