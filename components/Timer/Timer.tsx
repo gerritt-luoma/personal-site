@@ -1,12 +1,14 @@
-import { Group, Flex, Text, TextInput } from "@mantine/core";
+import { Group, Flex, Text, TextInput, UnstyledButton } from "@mantine/core";
 import { KeyboardEvent, useState } from "react";
 
 export interface TimerProps {
     title: string,
-    initialTime?: number
+    id?: number,
+    initialTime?: number,
+    handleDelete?: Function
 }
 
-const Timer = ({ title }: TimerProps) => {
+const Timer = ({ title, id, handleDelete }: TimerProps) => {
     const [editable, setEditable] = useState(false);
     // need to update this to have state managed by timer page
     const [content, setContent] = useState(title);
@@ -68,7 +70,14 @@ const Timer = ({ title }: TimerProps) => {
                     {content}
                 </Text>}
                 <Group spacing={'sm'}>
-                    <Text size={10}>Delete</Text>
+                    <UnstyledButton
+                        onClick={() => {
+                            console.log('clicked')
+                            handleDelete!!(id)
+                        }}
+                    >
+                        <Text size={10}>Delete</Text>
+                    </UnstyledButton>
                     <Text size={10}>Reset</Text>
                     <Text size={10}>Complete</Text>
                 </Group>
