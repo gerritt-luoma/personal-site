@@ -59,7 +59,10 @@ const Countdown = () => {
 
     return(
         <Flex direction={'column'} align='center' gap='sm' w={300} m='md'>
-            <Text size={40} fw='bold'>
+            <Text size={40} fw='bold' px='sm' w={200} ta='center' sx={styles => ({
+                backgroundColor: styles.colorScheme === 'dark' ? styles.colors.dark[5] : styles.colors.gray[2],
+                borderRadius: styles.radius.md
+            })}>
                 {convertSecondsToString(remainingTime)}
             </Text>
             {
@@ -77,11 +80,15 @@ const Countdown = () => {
                     onDoubleClick={() => setEditable(!editable)}
                     w={200}
                     ta='center'
+                    sx={styles => ({
+                        backgroundColor: styles.colorScheme === 'dark' ? styles.colors.dark[5] : styles.colors.gray[2],
+                        borderRadius: styles.radius.md
+                    })}
                 >
                     {title}
                 </Text>
             }
-            <Flex w='100%' align='center' justify='center' gap='sm'>
+            <Flex w={200} align='center' justify='center' gap='sm'>
                 <ChangeTime onClick={reduceTime} text={'-5'}/>
                 <PlayPauseButton running={running} onClick={running ? stopTimer : startTimer}/>
                 <ChangeTime onClick={addTime} text={'+5'}/>
