@@ -1,18 +1,16 @@
 import { convertSecondsToString } from "@lib/timer/timerUtils";
-import { Flex, Text } from "@mantine/core";
-import { useState } from "react";
+import { Flex, Text, TextInput } from "@mantine/core";
+import { useState, KeyboardEvent } from "react";
 import ChangeTime from "./ChangeTime";
 import PlayPauseButton from "./PlayPauseButton";
 
-interface CountdownProps {
-    totalSeconds: number,
-    title: string
-}
-
-const Countdown = ({ totalSeconds, title }: CountdownProps) => {
-    const [remainingSeconds, setRemainingSeconds] = useState(totalSeconds);
+const Countdown = () => {
+    // default to 10 minutes when loading the page
+    const [remainingTime, setRemainingTime] = useState(600);
     const [intervalId, setIntervalId] = useState(0);
     const [running, setRunning] = useState(false);
+    const [title, setTitle] = useState("Double click to change title!");
+    const [editable, setEditable] = useState(false);
 
     const startTimer = () => {
         if(!intervalId) {
@@ -31,33 +29,58 @@ const Countdown = ({ totalSeconds, title }: CountdownProps) => {
 
 
     const handleInterval = () => {
-        if(0 < remainingSeconds) {
-            setRemainingSeconds(remainingSeconds => remainingSeconds - 1);
+        if(0 < remainingTime) {
+            setRemainingTime(rt => rt - 1);
         } else {
             stopTimer();
         }
     }
 
+    // Add 5 minutes at a time
     const addTime = () => {
-        setRemainingSeconds(remainingSeconds => remainingSeconds + 300);
+        setRemainingTime(rt => rt + 300);
     }
 
+    // Remove 5 minutes at a time
     const reduceTime = () => {
-        if(remainingSeconds > 300) {
-            setRemainingSeconds(remainingSeconds => remainingSeconds - 300);
+        if(remainingTime > 300) {
+            setRemainingTime(rt => rt - 300);
         } else {
-            setRemainingSeconds(0);
+            setRemainingTime(0);
         }
     }
 
+    const handleKeyDown = (event:KeyboardEvent) => {
+        if(event.key === 'Enter') {
+            setEditable(!editable);
+        }
+    }
+
+
     return(
-        <Flex direction={'column'} align='center' gap='sm' w={300}>
+        <Flex direction={'column'} align='center' gap='sm' w={300} m='md'>
             <Text size={40} fw='bold'>
-                {convertSecondsToString(remainingSeconds)}
+                {convertSecondsToString(remainingTime)}
             </Text>
-            <Text>
-                {title}
-            </Text>
+            {
+            editable ?
+                <TextInput
+                    autoFocus
+                    onKeyDown={handleKeyDown}
+                    value={title}
+                    onChange={event => setTitle(event.target.value)}
+                    w={120}
+                /> :
+                <Text
+                    size={16}
+                    fw='bold'
+                    onDoubleClick={() => setEditable(!editable)}
+                    w={200}
+                    ta='center'
+                >
+                    {title}
+                </Text>
+            }
             <Flex w='100%' align='center' justify='center' gap='sm'>
                 <ChangeTime onClick={reduceTime} text={'-5'}/>
                 <PlayPauseButton running={running} onClick={running ? stopTimer : startTimer}/>
