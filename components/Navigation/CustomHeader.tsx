@@ -1,7 +1,8 @@
-import { Header, Flex, ActionIcon, Group, MediaQuery, Burger } from "@mantine/core";
+import { Header, Flex, ActionIcon, Group, MediaQuery, Burger, Button } from "@mantine/core";
 import { IconAperture } from "@tabler/icons";
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
+import HeaderLinks from "./HeaderLinks";
 
 interface CustomHeaderProps {
     opened: boolean,
@@ -15,6 +16,12 @@ const CustomHeader = ( { opened, setOpened }: CustomHeaderProps) => {
                 <ActionIcon component={Link} href='/' size={'md'} variant='outline'>
                     <IconAperture size={'md'} height='100%' width={'100%'}/>
                 </ActionIcon>
+
+                <MediaQuery smallerThan={'sm'} styles={{ display: 'none' }}>
+                    <Group>
+                        <HeaderLinks/>
+                    </Group>
+                </MediaQuery>
 
                 <Group>
                     <ThemeToggle/>
