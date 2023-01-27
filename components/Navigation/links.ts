@@ -12,4 +12,4 @@ export const navLinks: LinkProps[] = [
     { icon: IconArticle, color: 'pink', link: '/blog', label: 'Blog' },
     { icon: IconBulb, color: 'pink', link: '/projects', label: 'Projects' },
     { icon: IconBrandGithub, color: 'pink', link: 'https://github.com/gerritt-luoma/personal-site', label: 'Github'}
-]
+];
